@@ -27,6 +27,10 @@ public class BST<K extends Comparable<K>, V> implements Iterable<Map.Entry<K, V>
         while (true) {
             head.size++;
             int comp = key.compareTo(head.key);
+            if(comp == 0) {
+                head.val = val;
+                return;
+            }
             if (comp > 0) {
                 if (head.right == null) {
                     head.right = new Node(key, val);
